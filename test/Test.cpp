@@ -4,7 +4,7 @@
 #include <format>
 
 #define LOG(...) \
-    std::puts(std::format(__VA_ARGS__))
+    std::puts(std::format(__VA_ARGS__).c_str())
 
 namespace Test
 {
@@ -12,7 +12,7 @@ namespace Test
     {
         for (auto arg : argv)
         {
-            LOG(arg);
+            LOG("argv[{}]: {}", argv.find_index(arg), arg);
         }
         return 0;
     }

@@ -1,1 +1,40 @@
+name: Test
 
+on: [push]
+
+job:
+  Linux:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Tests
+        uses: |
+          cmake . -B build
+          cmake --build build
+
+      - name: Run Tests
+        uses: build/test/Debug/Test arg1 arg2 3 4
+
+  Windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: cmd
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Build Tests
+        uses: |
+          cmake . -B build
+          cmake --build build
+
+      - name: Run Tests
+        uses: build\test\Debug\Test.exe arg1 arg2 3 4

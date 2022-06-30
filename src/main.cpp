@@ -11,7 +11,10 @@
 
 #include <Argv/Argv.hpp>
 
-int ARGV_MAIN_NAMESPACE::Main(Argv::Argv);
+namespace ARGV_MAIN_NAMESPACE
+{
+    int Main(Argv::Argv);
+}
 
 int main(int argc, char* argv[])
 {
