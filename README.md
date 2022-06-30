@@ -1,7 +1,7 @@
 # Argv
 C++ 20 wrapper for C-style command line arguments (int argc, char* argv[])
 
-Want a modern C++ style main function? Define ARGV_ENABLE_MAIN or ARGV_MAIN_NAMESPACE in CMake, then using the Argv Main signature:
+Want a modern C++ style main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_NAMESPACE` in CMake, then use the Argv Main signature: `int Main(Argv::Argv)`
 
 ```cmake
 add_subdirectory(Argv)
@@ -25,9 +25,16 @@ Or still use the regular main:
 int main(int old_argc, char* old_argv[])
 {
     Argv::Argv argv(old_argc, old_argv);
-    
+
     // use argv...
-    
+
     return 0;
 }
 ```
+
+| `int ::main(int argc, char* argv[])` | `int Main(Argv::Argv argv)` |
+| :----------------------------------: | :-------------------------: |
+| C-syle                               | Modern C++                  |
+| 2 parameters                         | 1 parameter                 |
+| Pointer to `const char*`             | Container of `string_view`  |
+| Global scope                         | Namespaced                  |

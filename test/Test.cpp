@@ -10,6 +10,8 @@ namespace Test
 {
     int Main(Argv::Argv argv)
     {
+        LOG("count: {}", argv.count());
+
         for (auto arg : argv)
         {
             LOG("argv[{}]: {}", argv.find_index(arg), arg);
