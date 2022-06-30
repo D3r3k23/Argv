@@ -5,6 +5,11 @@ Want a modern C++ style main function? Define ARGV_ENABLE_MAIN or ARGV_MAIN_NAME
 ```
 int <ARGV_MAIN_NAMESPACE>::Main(Argv::Argv argv)
 {
-
+    auto arg0 = argv[0];
+    for (auto arg : argv)
+    {
+        // use arg...
+    }
+    return 0;
 }
 ```
