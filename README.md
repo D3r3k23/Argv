@@ -24,9 +24,9 @@ int <ARGV_MAIN_NAMESPACE>::Main(Argv::Argv argv)
 
 Or still use the regular main:
 ```cpp
-int main(int old_argc, char* old_argv[])
+int main(int c_argc, char* c_argv[])
 {
-    Argv::Argv argv(old_argc, old_argv);
+    Argv::Argv argv(c_argc, c_argv);
 
     // use argv...
 
