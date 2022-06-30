@@ -1,2 +1,2 @@
 # Argv
-C++ wrapper for C-style command line arguments (int argc, char* argv[])
+C++ 20 wrapper for C-style command line arguments (int argc, char* argv[])
