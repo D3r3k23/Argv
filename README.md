@@ -6,6 +6,8 @@ Want a modern C++ style main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_N
 ```cmake
 add_subdirectory(Argv)
 target_compile_definitions(Argv INTERFACE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
+# or
+target_compile_definitions(Argv INTERFACE ARGV_ENABLE_MAIN)
 ```
 
 ```cpp
