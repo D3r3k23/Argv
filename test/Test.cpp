@@ -6,7 +6,7 @@
 #define LOG(...) \
     std::puts(std::format(__VA_ARGS__).c_str())
 
-namespace Test
+namespace Argv::Test
 {
     int Main(Argv::Argv argv)
     {
