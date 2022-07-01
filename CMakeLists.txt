@@ -33,6 +33,6 @@ if(${ARGV_ENABLE_MAIN})
 endif()
 
 if(${ARGV_TOP_LEVEL})
-    message("Building test")
+    message("Argv: Configuring test program")
     add_subdirectory(test)
 endif()
