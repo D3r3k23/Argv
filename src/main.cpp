@@ -19,7 +19,7 @@
 
 ARGV_BEGIN_MAIN_NAMESPACE
 
-int Main(Argv);
+int Main(::Argv::Argv);
 
 ARGV_END_MAIN_NAMESPACE
 
