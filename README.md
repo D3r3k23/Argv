@@ -2,7 +2,7 @@
 
 [![Test](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml/badge.svg)](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml)
 
-Modern C++ (C++20) wrapper for the "classic" (i.e. outdated) command line arguments (`int argc, char* argv[]`)
+Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line arguments (`int argc, char* argv[]`)
 
 **Want a modern C++ main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_NAMESPACE` in CMake, then use the Argv Main signature:**
 
