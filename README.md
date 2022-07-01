@@ -4,20 +4,20 @@
 
 Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line arguments (`int argc, char* argv[]`)
 
-**Want a modern C++ main function? Set `ARGV_ENABLE_MAIN` in CMake or define `ARGV_MAIN_NAMESPACE` in your compiler, then use the Argv Main signature:**
+**Want a modern C++ main function? Set `ARGV_ENABLE_MAIN` in CMake and define `ARGV_MAIN_NAMESPACE` for the compiler, then use the Argv Main signature:**
 
 `int Main(Argv::Argv)`
 
-## CMake
+## Build
 
-### Link to project
+### CMake
 
 ```cmake
-set(ARGV_ENABLE_MAIN ON) # Enable global ::Main
-
+set(ARGV_ENABLE_MAIN ON)
 add_subdirectory(Argv)
 
-target_compile_definitions(Argv INTERFACE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>) # Enable namespaced Main
+target_compile_definitions(<TARGET> PRIVATE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
+target_link_libraries(<TARGET> PRIVATE Argv)
 ```
 
 ### Test program
@@ -28,6 +28,7 @@ $ mkdir build
 $ cmake . -B build
 $ cmake --build build
 ```
+
 #### Run
 ```
 $ build/test/Test arg1 opt2 3 4
