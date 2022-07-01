@@ -10,6 +10,8 @@ Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line argu
 
 ## Build
 
+* It is recommended to add Argv as a Git submodule to your project
+
 ### CMake
 
 ```cmake
