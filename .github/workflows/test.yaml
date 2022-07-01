@@ -13,13 +13,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Build Tests
-        run: |
-          cmake . -B build
-          cmake --build build
+      # - name: Build Tests
+      #   run: |
+      #     cmake . -B build
+      #     cmake --build build
 
-      - name: Run Tests
-        run: build/test/Debug/Test arg1 arg2 3 4
+      # - name: Run Tests
+      #   run: build/test/Debug/Test arg1 arg2 3 4
 
   Windows:
     runs-on: windows-latest
