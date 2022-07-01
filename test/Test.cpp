@@ -12,8 +12,7 @@ namespace Test
         for (auto arg : argv)
         {
             auto index = argv.find_index(arg).value();
-            // std::cout << "argv[" << index << "]: " << arg << std::endl;
-            std::cout << std::format("argv[{}]: {}\n", index, arg);
+            std::cout << std::format("argv[{}]: {}", index, arg) << '\n';
         }
         return 0;
     }
