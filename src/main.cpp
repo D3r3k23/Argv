@@ -1,24 +1,31 @@
-#if defined(ARGV_MAIN_NAMESPACE)
-#   define ARGV_ENABLE_MAIN 1
-#elif defined(ARGV_ENABLE_MAIN)
-#   define ARGV_ENABLE_MAIN 1
-#   define ARGV_MAIN_NAMESPACE
+#ifdef ARGV_ENABLE_MAIN
+
+#ifdef ARGV_MAIN_NAMESPACE
+#   define ARGV_MAIN_NAMESPACE_ENABLED 1
 #else
-#   define ARGV_ENABLE_MAIN 0
+#   define ARGV_MAIN_NAMESPACE_ENABLED 0
+#   define ARGV_MAIN_NAMESPACE
 #endif
 
-#if ARGV_ENABLE_MAIN
-
-    #include <Argv/Argv.hpp>
-
-    namespace ARGV_MAIN_NAMESPACE
-    {
-        int Main(Argv::Argv);
-    }
-
-    int main(int argc, char* argv[])
-    {
-        return ARGV_MAIN_NAMESPACE::Main(Argv::Argv{argc, argv});
-    }
-
+#if ARGV_MAIN_NAMESPACE_ENABLED
+#   define ARGV_BEGIN_MAIN_NAMESPACE namespace ARGV_MAIN_NAMESPACE {
+#   define ARGV_END_MAIN_NAMESPACE }
+#else
+#   define ARGV_BEGIN_MAIN_NAMESPACE
+#   define ARGV_END_MAIN_NAMESPACE
 #endif
+
+#include <Argv/Argv.hpp>
+
+ARGV_BEGIN_MAIN_NAMESPACE
+
+int Main(Argv);
+
+ARGV_END_MAIN_NAMESPACE
+
+int main(int argc, char* argv[])
+{
+    return ARGV_MAIN_NAMESPACE::Main({argc, argv});
+}
+
+#endif // ARGV_ENABLE_MAIN

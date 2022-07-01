@@ -4,7 +4,7 @@
 
 Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line arguments (`int argc, char* argv[]`)
 
-**Want a modern C++ main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_NAMESPACE` in CMake, then use the Argv Main signature:**
+**Want a modern C++ main function? Set `ARGV_ENABLE_MAIN` in CMake or define `ARGV_MAIN_NAMESPACE` in your compiler, then use the Argv Main signature:**
 
 `int Main(Argv::Argv)`
 
@@ -13,10 +13,11 @@ Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line argu
 ### Link to project
 
 ```cmake
+set(ARGV_ENABLE_MAIN ON) # Enable global ::Main
+
 add_subdirectory(Argv)
-target_compile_definitions(Argv INTERFACE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
-# or
-target_compile_definitions(Argv INTERFACE ARGV_ENABLE_MAIN)
+
+target_compile_definitions(Argv INTERFACE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>) # Enable namespaced Main
 ```
 
 ### Test program
@@ -59,11 +60,12 @@ int main(int c_argc, char* c_argv[])
 }
 ```
 
+Note: Args are stored with a string_view so Argv does not own them; this is fine since Argv just stores the parameters passed to `main`
+* But it is not recommended to create an Argv object from other sources than argc/argv
+
 | `int ::main(int argc, char* argv[])` | `int Main(Argv::Argv argv)`    |
 | :----------------------------------: | :----------------------------: |
 | C-syle                               | **Modern C++**                 |
 | 2 parameters                         | ***Single* parameter**         |
 | Pointer to `const char*`             | **Container of `string_view`** |
 | Global scope                         | **Namespaced**                 |
-
-* Note: the args are stored with a string_view so Argv does not own them; this is fine since Argv just stores the parameters passed to `main`

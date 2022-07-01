@@ -30,7 +30,7 @@ namespace Argv
 
         std::optional<std::string_view> get(int i) const
         {
-            if (i < count())
+            if (0 <= i && i < count())
                 return m_argv[i];
             else
                 return {};
