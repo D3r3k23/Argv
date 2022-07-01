@@ -15,9 +15,11 @@ Modern C++ (`C++20`) wrapper for the "classic" (i.e. outdated) command line argu
 ```cmake
 set(ARGV_ENABLE_MAIN ON)
 add_subdirectory(Argv)
-
-target_compile_definitions(<TARGET> PRIVATE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
 target_link_libraries(<TARGET> PRIVATE Argv)
+
+# Use this line if your Main is defined in a namespace
+#   otherwise leave it out
+target_compile_definitions(<TARGET> PRIVATE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
 ```
 
 ### Test program
