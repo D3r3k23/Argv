@@ -3,11 +3,11 @@
 #include <iostream>
 #include <format>
 
-namespace Test
+namespace Argv::Test
 {
     int Main(Argv::Argv argv)
     {
-        std::cout << "count: " << argv.count() << std::endl;
+        std::cout << std::format("count: {}", argv.count()) << '\n';
 
         for (auto arg : argv)
         {
