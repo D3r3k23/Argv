@@ -66,4 +66,4 @@ int main(int c_argc, char* c_argv[])
 | Pointer to `const char*`             | **Container of `string_view`** |
 | Global scope                         | **Namespaced**                 |
 
-* Note: the args are stored with a string_view so Argv does not own them; this is fine since `argv` in `main` lasts the lifetime of the program
+* Note: the args are stored with a string_view so Argv does not own them; this is fine since Argv just stores the parameters passed to `main`
