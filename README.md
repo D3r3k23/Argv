@@ -2,15 +2,15 @@
 
 [![Test](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml/badge.svg)](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml)
 
-Modern C++ (C++20) wrapper for the "classic" (i.e. outdated) command line arguments (int argc, char* argv[])
+Modern C++ (C++20) wrapper for the "classic" (i.e. outdated) command line arguments (`int argc, char* argv[]`)
 
 **Want a modern C++ main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_NAMESPACE` in CMake, then use the Argv Main signature:**
 
 `int Main(Argv::Argv)`
 
-### CMake
+## CMake
 
-#### Link to project
+### Link to project
 
 ```cmake
 add_subdirectory(Argv)
@@ -19,18 +19,20 @@ target_compile_definitions(Argv INTERFACE ARGV_MAIN_NAMESPACE=<YOUR_NAMESPACE>)
 target_compile_definitions(Argv INTERFACE ARGV_ENABLE_MAIN)
 ```
 
-#### Build test program
+### Test program
+
+#### Build
 ```
 $ mkdir build
 $ cmake . -B build
 $ cmake --build build
 ```
-##### Run
+#### Run
 ```
 $ build/test/Test arg1 opt2 3 4
 ```
 
-### Argv Main
+## Argv Main
 
 ```cpp
 int <ARGV_MAIN_NAMESPACE>::Main(Argv::Argv argv)
