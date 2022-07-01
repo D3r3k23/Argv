@@ -33,12 +33,12 @@ namespace Argv
             if (i < count())
                 return m_argv[i];
             else
-                return std::nullopt;
+                return {};
         }
 
         Size count(void) const
         {
-            return m_argv.size();
+            return size();
         }
 
         Size size(void) const
@@ -46,9 +46,12 @@ namespace Argv
             return m_argv.size();
         }
 
-        Size find_index(std::string_view arg) const
+        std::optional<Size> find_index(std::string_view arg) const
         {
-            return std::distance(begin(), find(arg));
+            if (auto it = find(arg); it != end())
+                return std::distance(begin(), it);
+            else
+                return {};
         }
 
         bool contains(std::string_view arg) const

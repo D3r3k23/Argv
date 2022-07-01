@@ -9,16 +9,16 @@
 
 #if ARGV_ENABLE_MAIN
 
-#include <Argv/Argv.hpp>
+    #include <Argv/Argv.hpp>
 
-namespace ARGV_MAIN_NAMESPACE
-{
-    int Main(Argv::Argv);
-}
+    namespace ARGV_MAIN_NAMESPACE
+    {
+        int Main(Argv::Argv);
+    }
 
-int main(int argc, char* argv[])
-{
-    return ARGV_MAIN_NAMESPACE::Main(Argv::Argv{argc, argv});
-}
+    int main(int argc, char* argv[])
+    {
+        return ARGV_MAIN_NAMESPACE::Main(Argv::Argv{argc, argv});
+    }
 
 #endif
