@@ -2,7 +2,7 @@ name: Test
 
 on: [push]
 
-job:
+jobs:
   Linux:
     runs-on: ubuntu-latest
     defaults:
@@ -14,12 +14,12 @@ job:
         uses: actions/checkout@v2
 
       - name: Build Tests
-        uses: |
+        run: |
           cmake . -B build
           cmake --build build
 
       - name: Run Tests
-        uses: build/test/Debug/Test arg1 arg2 3 4
+        run: build/test/Debug/Test arg1 arg2 3 4
 
   Windows:
     runs-on: windows-latest
@@ -32,9 +32,9 @@ job:
         uses: actions/checkout@v2
 
       - name: Build Tests
-        uses: |
+        run: |
           cmake . -B build
           cmake --build build
 
       - name: Run Tests
-        uses: build\test\Debug\Test.exe arg1 arg2 3 4
+        run: build\test\Debug\Test.exe arg1 arg2 3 4
