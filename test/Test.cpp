@@ -1,20 +1,19 @@
 #include <Argv/Argv.hpp>
 
-#include <cstdio>
+#include <iostream>
 #include <format>
-
-#define LOG(...) \
-    std::puts(std::format(__VA_ARGS__).c_str())
 
 namespace Test
 {
     int Main(Argv::Argv argv)
     {
-        LOG("count: {}", argv.count());
+        std::cout << "count: " << argv.count() << std::endl;
 
         for (auto arg : argv)
         {
-            LOG("argv[{}]: {}", argv.find_index(arg), arg);
+            auto index = argv.find_index(arg).value();
+            // std::cout << "argv[" << index << "]: " << arg << std::endl;
+            std::cout << std::format("argv[{}]: {}\n", index, arg);
         }
         return 0;
     }

@@ -25,6 +25,6 @@ if(${ARGV_ENABLE_MAIN})
 endif()
 
 if (${ARGV_TOP_LEVEL})
-    message("Building tests")
+    message("Building test")
     add_subdirectory(test)
 endif()
