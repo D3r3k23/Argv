@@ -1,4 +1,7 @@
 # Argv
+
+[![Test](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml/badge.svg)](https://github.com/D3r3k23/Argv/actions/workflows/test.yaml)
+
 C++ 20 wrapper for C-style command line arguments (int argc, char* argv[])
 
 Want a modern C++ style main function? Define `ARGV_ENABLE_MAIN` or `ARGV_MAIN_NAMESPACE` in CMake, then use the Argv Main signature: `int Main(Argv::Argv)`
